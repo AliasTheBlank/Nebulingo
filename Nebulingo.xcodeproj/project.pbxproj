@@ -58,16 +58,32 @@
 		C636970D2AFAECEA00E7DCFE /* Nebulingo */ = {
 			isa = PBXGroup;
 			children = (
+				C6C52B212AFEA84E00C52BAB /* Controllers */,
+				C6C52B1F2AFEA82F00C52BAB /* Views */,
 				C636970E2AFAECEA00E7DCFE /* AppDelegate.swift */,
 				C63697102AFAECEA00E7DCFE /* SceneDelegate.swift */,
-				C63697122AFAECEA00E7DCFE /* ViewController.swift */,
-				C63697142AFAECEA00E7DCFE /* Main.storyboard */,
 				C636971A2AFAECED00E7DCFE /* Assets.xcassets */,
 				C636971C2AFAECED00E7DCFE /* LaunchScreen.storyboard */,
 				C636971F2AFAECED00E7DCFE /* Info.plist */,
 				C63697172AFAECEA00E7DCFE /* Nebulingo.xcdatamodeld */,
 			);
 			path = Nebulingo;
+			sourceTree = "<group>";
+		};
+		C6C52B1F2AFEA82F00C52BAB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C63697142AFAECEA00E7DCFE /* Main.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		C6C52B212AFEA84E00C52BAB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C63697122AFAECEA00E7DCFE /* ViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
