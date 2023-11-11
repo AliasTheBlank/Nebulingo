@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+enum Segue {
+    static let toMainViewController = "toMainViewController"
+    static let toSignUpViewController = "toSignUpViewController"
+}
