@@ -76,6 +76,7 @@
                                     <fontDescription key="titleFontDescription" name="Lexend-Bold" family="Lexend" pointSize="20"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="btnLogInTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IW8-uR-9cF"/>
                                     <segue destination="iDT-FX-Zgc" kind="show" identifier="toHomeViewController" id="zfL-bY-KIL"/>
                                 </connections>
                             </button>
@@ -86,9 +87,8 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Sign Up?"/>
                                 <connections>
-                                    <action selector="SigUpTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="P7r-Qo-1M9"/>
-                                    <action selector="SignUpTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="G6a-qA-PIt"/>
-                                    <segue destination="9FM-55-C5V" kind="show" id="gBn-BO-aGq"/>
+                                    <action selector="SignUpTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PMN-VT-LLV"/>
+                                    <segue destination="9FM-55-C5V" kind="show" identifier="toSignUpViewController" id="gBn-BO-aGq"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4eb-ar-nkk">
@@ -119,10 +119,10 @@
             </objects>
             <point key="canvasLocation" x="1063.3587786259541" y="3.5211267605633805"/>
         </scene>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="lGb-MU-cvO">
             <objects>
-                <viewController id="iDT-FX-Zgc" sceneMemberID="viewController">
+                <viewController id="iDT-FX-Zgc" customClass="HomeViewController" customModule="Nebulingo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pZQ-OH-N2X">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -228,10 +228,10 @@
             </objects>
             <point key="canvasLocation" x="2797" y="35"/>
         </scene>
-        <!--View Controller-->
+        <!--Sign Up View Controller-->
         <scene sceneID="LLe-HU-kpf">
             <objects>
-                <viewController id="9FM-55-C5V" sceneMemberID="viewController">
+                <viewController id="9FM-55-C5V" customClass="SignUpViewController" customModule="Nebulingo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TED-o5-8p1">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -250,7 +250,7 @@
                                 <rect key="frame" x="233" y="265" width="99" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eab-dq-RSh">

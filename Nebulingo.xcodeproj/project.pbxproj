@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C34A2EC2B0543C6002A1666 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C34A2EB2B0543C6002A1666 /* SignUpViewController.swift */; };
+		4C34A2EE2B0543E0002A1666 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C34A2ED2B0543E0002A1666 /* HomeViewController.swift */; };
 		4C57A7CA2AFEB267001B1C62 /* Lexend-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C57A7C92AFEB25F001B1C62 /* Lexend-Thin.ttf */; };
 		4C57A7CB2AFEB274001B1C62 /* Lexend-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C57A7C62AFEB25F001B1C62 /* Lexend-Black.ttf */; };
 		4C57A7CC2AFEB274001B1C62 /* Lexend-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C57A7C52AFEB25F001B1C62 /* Lexend-Regular.ttf */; };
@@ -29,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C34A2EB2B0543C6002A1666 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		4C34A2ED2B0543E0002A1666 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4C57A7C12AFEB25F001B1C62 /* Lexend-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lexend-Medium.ttf"; sourceTree = "<group>"; };
 		4C57A7C22AFEB25F001B1C62 /* Lexend-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lexend-ExtraLight.ttf"; sourceTree = "<group>"; };
 		4C57A7C32AFEB25F001B1C62 /* Lexend-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lexend-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -142,6 +146,8 @@
 			isa = PBXGroup;
 			children = (
 				C63697122AFAECEA00E7DCFE /* ViewController.swift */,
+				4C34A2EB2B0543C6002A1666 /* SignUpViewController.swift */,
+				4C34A2ED2B0543E0002A1666 /* HomeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -228,8 +234,10 @@
 			files = (
 				4C57A7D82AFEBA90001B1C62 /* enumSegue.swift in Sources */,
 				4C57A7D52AFEB9B9001B1C62 /* Circle.swift in Sources */,
+				4C34A2EC2B0543C6002A1666 /* SignUpViewController.swift in Sources */,
 				C63697132AFAECEA00E7DCFE /* ViewController.swift in Sources */,
 				C63697192AFAECEA00E7DCFE /* Nebulingo.xcdatamodeld in Sources */,
+				4C34A2EE2B0543E0002A1666 /* HomeViewController.swift in Sources */,
 				C636970F2AFAECEA00E7DCFE /* AppDelegate.swift in Sources */,
 				C63697112AFAECEA00E7DCFE /* SceneDelegate.swift in Sources */,
 				4C57A7DA2AFEBAB3001B1C62 /* Toast.swift in Sources */,
