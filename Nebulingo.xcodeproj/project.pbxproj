@@ -18,7 +18,6 @@
 		4C57A7D02AFEB274001B1C62 /* Lexend-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C57A7C72AFEB25F001B1C62 /* Lexend-Light.ttf */; };
 		4C57A7D12AFEB274001B1C62 /* Lexend-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C57A7C82AFEB25F001B1C62 /* Lexend-SemiBold.ttf */; };
 		4C57A7D22AFEB274001B1C62 /* Lexend-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C57A7C12AFEB25F001B1C62 /* Lexend-Medium.ttf */; };
-		4C57A7D52AFEB9B9001B1C62 /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C57A7D42AFEB9B9001B1C62 /* Circle.swift */; };
 		4C57A7D82AFEBA90001B1C62 /* enumSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C57A7D72AFEBA90001B1C62 /* enumSegue.swift */; };
 		4C57A7DA2AFEBAB3001B1C62 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C57A7D92AFEBAB3001B1C62 /* Toast.swift */; };
 		C636970F2AFAECEA00E7DCFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C636970E2AFAECEA00E7DCFE /* AppDelegate.swift */; };
@@ -42,7 +41,6 @@
 		4C57A7C72AFEB25F001B1C62 /* Lexend-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lexend-Light.ttf"; sourceTree = "<group>"; };
 		4C57A7C82AFEB25F001B1C62 /* Lexend-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lexend-SemiBold.ttf"; sourceTree = "<group>"; };
 		4C57A7C92AFEB25F001B1C62 /* Lexend-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lexend-Thin.ttf"; sourceTree = "<group>"; };
-		4C57A7D42AFEB9B9001B1C62 /* Circle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
 		4C57A7D72AFEBA90001B1C62 /* enumSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enumSegue.swift; sourceTree = "<group>"; };
 		4C57A7D92AFEBAB3001B1C62 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		C636970B2AFAECEA00E7DCFE /* Nebulingo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nebulingo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,14 +81,6 @@
 			path = fonts;
 			sourceTree = "<group>";
 		};
-		4C57A7D32AFEB98D001B1C62 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				4C57A7D42AFEB9B9001B1C62 /* Circle.swift */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
 		4C57A7D62AFEBA7E001B1C62 /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,7 +110,6 @@
 			isa = PBXGroup;
 			children = (
 				4C57A7D62AFEBA7E001B1C62 /* Source */,
-				4C57A7D32AFEB98D001B1C62 /* Components */,
 				4C57A7C02AFEB23D001B1C62 /* fonts */,
 				C6C52B212AFEA84E00C52BAB /* Controllers */,
 				C6C52B1F2AFEA82F00C52BAB /* Views */,
@@ -233,7 +222,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C57A7D82AFEBA90001B1C62 /* enumSegue.swift in Sources */,
-				4C57A7D52AFEB9B9001B1C62 /* Circle.swift in Sources */,
 				4C34A2EC2B0543C6002A1666 /* SignUpViewController.swift in Sources */,
 				C63697132AFAECEA00E7DCFE /* ViewController.swift in Sources */,
 				C63697192AFAECEA00E7DCFE /* Nebulingo.xcdatamodeld in Sources */,

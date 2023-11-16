@@ -8,22 +8,28 @@
 import UIKit
 
 class SignUpViewController: UIViewController {
-
+        
+    @IBOutlet weak var txtConfirmPassword: UITextField!
+    @IBOutlet weak var btnShowPassword: UIButton!
+    @IBOutlet weak var txtPassword: UITextField!
+    @IBOutlet weak var txtEmail: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func btnLogInTouchUpInside(_ sender: Any) {
+        performSegue(withIdentifier: Segue.toViewController, sender: self)
     }
-    */
-
+    @IBAction func btnShowPasswordShow(_ sender: Any) {
+        if(!txtPassword.isSecureTextEntry){
+            txtPassword.isSecureTextEntry = true
+            txtConfirmPassword.isSecureTextEntry = true
+            btnShowPassword.setImage(UIImage(systemName: "eye"), for: .normal)
+        }else{
+            txtPassword.isSecureTextEntry = false
+            txtConfirmPassword.isSecureTextEntry = false
+            btnShowPassword.setImage(UIImage(systemName: "eye.fill"), for: .normal)
+        }
+    }
 }

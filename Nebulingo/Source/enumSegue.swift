@@ -8,6 +8,7 @@
 import Foundation
 
 enum Segue {
+    static let toViewController = "toViewController"
     static let toHomeViewController = "toHomeViewController"
     static let toSignUpViewController = "toSignUpViewController"
 }
