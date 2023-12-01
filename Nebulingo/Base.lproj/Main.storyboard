@@ -174,6 +174,10 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Beginner">
                                     <fontDescription key="titleFontDescription" name="Lexend-Bold" family="Lexend" pointSize="20"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="btnBeginnerTouchUpInside:" destination="iDT-FX-Zgc" eventType="touchUpInside" id="zac-6F-3jf"/>
+                                    <segue destination="kzc-ta-Ulx" kind="show" id="atE-xK-nmm"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bWW-xD-v7n">
                                 <rect key="frame" x="16" y="460" width="361" height="51"/>
@@ -184,6 +188,10 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Intermidiate" cornerStyle="large">
                                     <fontDescription key="titleFontDescription" name="Lexend-Bold" family="Lexend" pointSize="20"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="btnIntermidiateTouchUpInside:" destination="iDT-FX-Zgc" eventType="touchUpInside" id="ukd-H5-egu"/>
+                                    <segue destination="kzc-ta-Ulx" kind="show" id="3AK-cp-0r4"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RBZ-co-49e">
                                 <rect key="frame" x="16" y="519" width="361" height="51"/>
@@ -194,6 +202,10 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Advanced" cornerStyle="large">
                                     <fontDescription key="titleFontDescription" name="Lexend-Bold" family="Lexend" pointSize="20"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="btnAdvancedTouchUpInside:" destination="iDT-FX-Zgc" eventType="touchUpInside" id="bOn-Po-LgB"/>
+                                    <segue destination="kzc-ta-Ulx" kind="show" id="kMy-fZ-DMS"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Layer_1" translatesAutoresizingMaskIntoConstraints="NO" id="uLK-BW-Dzc">
                                 <rect key="frame" x="-26" y="617" width="240" height="128"/>
@@ -229,12 +241,12 @@
             </objects>
             <point key="canvasLocation" x="1909.1603053435115" y="17.605633802816904"/>
         </scene>
-        <!--View Controller-->
+        <!--Game View Controller-->
         <scene sceneID="A0C-ek-u5Y">
             <objects>
-                <viewController id="kzc-ta-Ulx" sceneMemberID="viewController">
+                <viewController id="kzc-ta-Ulx" customClass="GameViewController" customModule="Nebulingo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V9J-z0-ceS">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Je" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ejg-Cz-cT4">
@@ -244,8 +256,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Present" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eoS-c0-BRx">
-                                <rect key="frame" x="145" y="139" width="103" height="35"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Level" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eoS-c0-BRx">
+                                <rect key="frame" x="102" y="59" width="189" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="28"/>
                                 <nil key="textColor"/>
@@ -340,29 +352,49 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.53359252209999997" green="0.23989009859999999" blue="0.56865388149999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ISw-2I-Aap">
-                                <rect key="frame" x="130" y="-149" width="469" height="280"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="0.53359252209999997" green="0.23989009859999999" blue="0.56865388149999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Bd1-2m-Uk1">
-                                <rect key="frame" x="-246" y="-146" width="469" height="280"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="0.53359252209999997" green="0.23989009859999999" blue="0.56865388149999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ALLER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGm-Ip-FzZ">
-                                <rect key="frame" x="133" y="102" width="131" height="50"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="VERB" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGm-Ip-FzZ">
+                                <rect key="frame" x="69" y="102" width="255" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Lexend-Bold" family="Lexend" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2FW-86-Uwb">
+                                <rect key="frame" x="5" y="117" width="51" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="arrowshape.backward.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="btnBackTouchUpInside:" destination="vi2-05-ziV" eventType="touchUpInside" id="2MM-vh-pnD"/>
+                                    <action selector="btnBackTouchUpInside:" destination="kzc-ta-Ulx" eventType="touchUpInside" id="a7R-ve-3sr"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Present" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9PC-74-82a">
+                                <rect key="frame" x="167" y="154" width="59" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="bAv-Ew-Fsk">
+                                <rect key="frame" x="164" y="-138" width="469" height="280"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.53359252209999997" green="0.23989009859999999" blue="0.56865388149999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="a0x-sk-exg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="gmq-UD-y7h"/>
+                    <connections>
+                        <outlet property="txtLevel" destination="eoS-c0-BRx" id="sWE-87-HFk"/>
+                        <outlet property="txtTime" destination="9PC-74-82a" id="XNL-jM-ORw"/>
+                        <outlet property="txtVerb" destination="dGm-Ip-FzZ" id="5Pq-zz-dkB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Ae-c5-5kb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="vi2-05-ziV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2796.1832061068703" y="34.507042253521128"/>
         </scene>
@@ -495,10 +527,17 @@
             <point key="canvasLocation" x="136.64122137404578" y="3.5211267605633805"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="atE-xK-nmm"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Layer_1" width="200" height="214"/>
+        <image name="arrowshape.backward.fill" catalog="system" width="128" height="104"/>
         <image name="circle.fill" catalog="system" width="128" height="123"/>
         <image name="eye" catalog="system" width="128" height="79"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

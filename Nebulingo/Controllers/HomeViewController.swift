@@ -10,9 +10,10 @@ import UIKit
 class HomeViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     @IBOutlet weak var picker: UIPickerView!
-    
     var options = VerbProvider.allVerbs;
-    
+    var selectedVerb: Verb?;
+    var level: String?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +22,7 @@ class HomeViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         
         VerbProvider.generateVerbData()
         options = VerbProvider.allVerbs
+        selectedVerb = options[0]
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -38,18 +40,22 @@ class HomeViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         // Aquí puedes manejar lo que sucede cuando el usuario selecciona una opción
         // textField.text = options[row]
+        selectedVerb = options[row]
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        (segue.destination as! GameViewController).receivedVerb = selectedVerb
+        (segue.destination as! GameViewController).level = level
     }
-    */
+    @IBAction func btnBeginnerTouchUpInside(_ sender: Any) {
+        level = "Beginner";
+    }
     @IBAction func btnLogOut(_ sender: Any) {
         self.dismiss(animated: true)
     }
-    
+    @IBAction func btnIntermidiateTouchUpInside(_ sender: Any) {
+        level = "Intermidiate";
+    }
+    @IBAction func btnAdvancedTouchUpInside(_ sender: Any) {
+        level = "Advanced";
+    }
 }
