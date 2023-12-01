@@ -19,7 +19,7 @@ class SignUpViewController: UIViewController {
     
 
     @IBAction func btnLogInTouchUpInside(_ sender: Any) {
-        performSegue(withIdentifier: Segue.toViewController, sender: self)
+        self.dismiss(animated: true)
     }
     @IBAction func btnShowPasswordShow(_ sender: Any) {
         if(!txtPassword.isSecureTextEntry){
