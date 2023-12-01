@@ -13,4 +13,12 @@ class Verb {
     
     var present: Dictionary<Int, String>?
     
+    init(infinitif: String, present: Dictionary<Int, String>) {
+        self.infinitif = infinitif
+        self.present = present
+    }
+    
+    init(){
+    }
+    
 }
