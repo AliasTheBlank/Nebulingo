@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="z8n-lo-o3j">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="z8n-lo-o3j">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -54,7 +53,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T5q-nG-ig5">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T5q-nG-ig5">
                                 <rect key="frame" x="16" y="350" width="361" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="20"/>
@@ -76,7 +75,6 @@
                                     <fontDescription key="titleFontDescription" name="Lexend-Bold" family="Lexend" pointSize="20"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="btnLogInTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IW8-uR-9cF"/>
                                     <segue destination="iDT-FX-Zgc" kind="showDetail" identifier="toHomeViewController" id="zfL-bY-KIL"/>
                                 </connections>
                             </button>
@@ -121,8 +119,8 @@
                     <navigationItem key="navigationItem" id="XVV-VT-HC5"/>
                     <connections>
                         <outlet property="btnShowPassword" destination="4eb-ar-nkk" id="o77-9r-yv3"/>
-                        <outlet property="txtEmail" destination="T5q-nG-ig5" id="lEf-M5-RC2"/>
                         <outlet property="txtPassword" destination="jQL-6r-5Q1" id="LS2-BI-TTq"/>
+                        <outlet property="txtUsername" destination="T5q-nG-ig5" id="lEf-M5-RC2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -203,11 +201,11 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="knp-sv-wsg">
-                                <rect key="frame" x="319" y="332" width="50" height="35"/>
+                                <rect key="frame" x="318" y="332" width="52" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system"/>
+                                <buttonConfiguration key="configuration" style="plain" image="dice" catalog="system"/>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Layer_1" translatesAutoresizingMaskIntoConstraints="NO" id="uLK-BW-Dzc">
                                 <rect key="frame" x="-26" y="617" width="240" height="128"/>
@@ -398,7 +396,7 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eab-dq-RSh">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eab-dq-RSh">
                                 <rect key="frame" x="16" y="350" width="361" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="20"/>
@@ -446,9 +444,6 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Log in?">
                                     <fontDescription key="titleFontDescription" name="Lexend-Regular" family="Lexend" pointSize="20"/>
                                 </buttonConfiguration>
-                                <connections>
-                                    <action selector="btnLogInTouchUpInside:" destination="9FM-55-C5V" eventType="touchUpInside" id="ZSK-BG-f4b"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nG5-j8-Xsv">
                                 <rect key="frame" x="16" y="530" width="361" height="51"/>
@@ -460,7 +455,7 @@
                                     <fontDescription key="titleFontDescription" name="Lexend-Bold" family="Lexend" pointSize="20"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="btnLogInTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ta1-Mo-n1a"/>
+                                    <action selector="btnSingUp:" destination="9FM-55-C5V" eventType="touchUpInside" id="BTN-oL-Whn"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ready to learn some verbs!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yvR-Ls-Zxd">
@@ -478,8 +473,8 @@
                     <connections>
                         <outlet property="btnShowPassword" destination="3B7-kb-H2o" id="vs1-7r-6un"/>
                         <outlet property="txtConfirmPassword" destination="fbh-RB-Dfg" id="IUX-6z-eR9"/>
-                        <outlet property="txtEmail" destination="eab-dq-RSh" id="h4d-mS-L3f"/>
                         <outlet property="txtPassword" destination="qbU-BA-nSP" id="kY0-BS-cbb"/>
+                        <outlet property="txtUsername" destination="eab-dq-RSh" id="h4d-mS-L3f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E1I-9S-DiC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -508,8 +503,8 @@
     <resources>
         <image name="Layer_1" width="200" height="214"/>
         <image name="circle.fill" catalog="system" width="128" height="123"/>
+        <image name="dice" catalog="system" width="128" height="116"/>
         <image name="eye" catalog="system" width="128" height="79"/>
-        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
