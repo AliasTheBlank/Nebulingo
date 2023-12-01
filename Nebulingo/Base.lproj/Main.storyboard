@@ -302,6 +302,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="btnLogInTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="InU-wR-9H4"/>
+                                    <action selector="validateAns:" destination="kzc-ta-Ulx" eventType="touchUpInside" id="czS-g5-ccq"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Il/Elle/On" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NLn-hV-FdX">
@@ -388,6 +389,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="gmq-UD-y7h"/>
                     <connections>
+                        <outlet property="tvIl" destination="ucj-g6-0U1" id="xhq-lj-bY8"/>
+                        <outlet property="tvIls" destination="jDV-5k-uoK" id="NEB-RC-eQK"/>
+                        <outlet property="tvJe" destination="ZDH-qC-YF8" id="muO-TF-Wkv"/>
+                        <outlet property="tvNous" destination="ieA-ML-rST" id="bgG-yT-SXD"/>
+                        <outlet property="tvTu" destination="aF2-45-fIp" id="xRC-3j-8Wa"/>
+                        <outlet property="tvVous" destination="eFz-pl-3qw" id="e40-Zi-Rcx"/>
                         <outlet property="txtLevel" destination="eoS-c0-BRx" id="sWE-87-HFk"/>
                         <outlet property="txtTime" destination="9PC-74-82a" id="XNL-jM-ORw"/>
                         <outlet property="txtVerb" destination="dGm-Ip-FzZ" id="5Pq-zz-dkB"/>
