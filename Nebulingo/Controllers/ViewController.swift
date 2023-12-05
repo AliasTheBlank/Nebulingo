@@ -22,6 +22,13 @@ class ViewController: UIViewController {
     }
     
     @IBAction func btnLogInTouchUpInside(_ sender: Any) {
+        FrenchVerbAPI.signIn(email: "aldo@gmail.com", password: "123"){
+            token in
+            print(token);
+            Context.loggedUserToken = token;
+        }failHandler: { httpStatusCode, errorMessage in
+            print("failed with \(httpStatusCode)")
+        }
         performSegue(withIdentifier: Segue.toHomeViewController, sender: self)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
