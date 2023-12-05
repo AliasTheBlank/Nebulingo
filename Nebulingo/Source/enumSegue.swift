@@ -11,4 +11,5 @@ enum Segue {
     static let toViewController = "toViewController"
     static let toHomeViewController = "toHomeViewController"
     static let toSignUpViewController = "toSignUpViewController"
+    static let toGameViewController = "toGameViewController"
 }

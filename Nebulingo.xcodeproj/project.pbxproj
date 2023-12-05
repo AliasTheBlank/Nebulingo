@@ -18,6 +18,11 @@
 		4C2467E72B1FDE38008530E2 /* FrenchVerbIndicatifModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2467DD2B1FDE38008530E2 /* FrenchVerbIndicatifModel.swift */; };
 		4C2467E82B1FDE38008530E2 /* FrenchVerbSubjonctifModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2467DE2B1FDE38008530E2 /* FrenchVerbSubjonctifModel.swift */; };
 		4C2467ED2B1FDEB5008530E2 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2467EC2B1FDEB5008530E2 /* Context.swift */; };
+		3CEFB2162B1A1DE3007AFB3B /* UserProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEFB2152B1A1DE3007AFB3B /* UserProvider.swift */; };
+		3CEFB2182B1A1DF4007AFB3B /* VerbProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEFB2172B1A1DF4007AFB3B /* VerbProvider.swift */; };
+		3CEFB21B2B1A1E39007AFB3B /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEFB21A2B1A1E39007AFB3B /* UserModel.swift */; };
+		3CEFB21F2B1A1F7F007AFB3B /* VerbModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEFB21E2B1A1F7F007AFB3B /* VerbModel.swift */; };
+		3CEFB2212B1A2EC4007AFB3B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEFB2202B1A2EC4007AFB3B /* GameViewController.swift */; };
 		4C34A2EC2B0543C6002A1666 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C34A2EB2B0543C6002A1666 /* SignUpViewController.swift */; };
 		4C34A2EE2B0543E0002A1666 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C34A2ED2B0543E0002A1666 /* HomeViewController.swift */; };
 		4C57A7CA2AFEB267001B1C62 /* Lexend-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C57A7C92AFEB25F001B1C62 /* Lexend-Thin.ttf */; };
@@ -52,6 +57,11 @@
 		4C2467DD2B1FDE38008530E2 /* FrenchVerbIndicatifModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrenchVerbIndicatifModel.swift; sourceTree = "<group>"; };
 		4C2467DE2B1FDE38008530E2 /* FrenchVerbSubjonctifModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrenchVerbSubjonctifModel.swift; sourceTree = "<group>"; };
 		4C2467EC2B1FDEB5008530E2 /* Context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
+		3CEFB2152B1A1DE3007AFB3B /* UserProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProvider.swift; sourceTree = "<group>"; };
+		3CEFB2172B1A1DF4007AFB3B /* VerbProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbProvider.swift; sourceTree = "<group>"; };
+		3CEFB21A2B1A1E39007AFB3B /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		3CEFB21E2B1A1F7F007AFB3B /* VerbModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbModel.swift; sourceTree = "<group>"; };
+		3CEFB2202B1A2EC4007AFB3B /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		4C34A2EB2B0543C6002A1666 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		4C34A2ED2B0543E0002A1666 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4C57A7C12AFEB25F001B1C62 /* Lexend-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lexend-Medium.ttf"; sourceTree = "<group>"; };
@@ -133,6 +143,22 @@
 				4C2467EC2B1FDEB5008530E2 /* Context.swift */,
 			);
 			path = Shared;
+		3CEFB2142B1A1DCE007AFB3B /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				3CEFB2152B1A1DE3007AFB3B /* UserProvider.swift */,
+				3CEFB2172B1A1DF4007AFB3B /* VerbProvider.swift */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
+		3CEFB2192B1A1E2B007AFB3B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3CEFB21A2B1A1E39007AFB3B /* UserModel.swift */,
+				3CEFB21E2B1A1F7F007AFB3B /* VerbModel.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		4C57A7C02AFEB23D001B1C62 /* fonts */ = {
@@ -182,6 +208,8 @@
 				4C2467EB2B1FDEA7008530E2 /* Shared */,
 				4C2467D62B1FDE38008530E2 /* Model */,
 				4C2467D12B1FDE38008530E2 /* Service */,
+				3CEFB2192B1A1E2B007AFB3B /* Model */,
+				3CEFB2142B1A1DCE007AFB3B /* Service */,
 				4C57A7D62AFEBA7E001B1C62 /* Source */,
 				4C57A7C02AFEB23D001B1C62 /* fonts */,
 				C6C52B212AFEA84E00C52BAB /* Controllers */,
@@ -210,6 +238,7 @@
 				C63697122AFAECEA00E7DCFE /* ViewController.swift */,
 				4C34A2EB2B0543C6002A1666 /* SignUpViewController.swift */,
 				4C34A2ED2B0543E0002A1666 /* HomeViewController.swift */,
+				3CEFB2202B1A2EC4007AFB3B /* GameViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -296,7 +325,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C57A7D82AFEBA90001B1C62 /* enumSegue.swift in Sources */,
+				3CEFB2162B1A1DE3007AFB3B /* UserProvider.swift in Sources */,
+				3CEFB21F2B1A1F7F007AFB3B /* VerbModel.swift in Sources */,
 				4C34A2EC2B0543C6002A1666 /* SignUpViewController.swift in Sources */,
+				3CEFB2212B1A2EC4007AFB3B /* GameViewController.swift in Sources */,
 				C63697132AFAECEA00E7DCFE /* ViewController.swift in Sources */,
 				C63697192AFAECEA00E7DCFE /* Nebulingo.xcdatamodeld in Sources */,
 				4C2467E22B1FDE38008530E2 /* FrenchVerbParticipeModel.swift in Sources */,
@@ -309,10 +341,12 @@
 				4C2467E32B1FDE38008530E2 /* FrenchVerbConditionnelModel.swift in Sources */,
 				4C2467E62B1FDE38008530E2 /* FrenchVerbImperatifModel.swift in Sources */,
 				4C2467E12B1FDE38008530E2 /* FrenchVerbInfinitiveModel.swift in Sources */,
+				3CEFB2182B1A1DF4007AFB3B /* VerbProvider.swift in Sources */,
 				C63697112AFAECEA00E7DCFE /* SceneDelegate.swift in Sources */,
 				4C2467ED2B1FDEB5008530E2 /* Context.swift in Sources */,
 				4C57A7DA2AFEBAB3001B1C62 /* Toast.swift in Sources */,
 				4C2467E82B1FDE38008530E2 /* FrenchVerbSubjonctifModel.swift in Sources */,
+				3CEFB21B2B1A1E39007AFB3B /* UserModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

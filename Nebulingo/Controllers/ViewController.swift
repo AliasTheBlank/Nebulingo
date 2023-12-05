@@ -9,9 +9,12 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var txtEmail: UITextField!
+    @IBOutlet weak var txtUsername: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var btnShowPassword: UIButton!
+    
+    
+    var userToLogin : User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +33,28 @@ class ViewController: UIViewController {
             print("failed with \(httpStatusCode)")
         }
         performSegue(withIdentifier: Segue.toHomeViewController, sender: self)
+
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if txtUsername.text!.isEmpty {
+            Toast.ok(view: self, title: "Error", message: "Please insert an username")
+            return false
+        }
+        if txtPassword.text!.isEmpty {
+            Toast.ok(view: self, title: "Error", message: "Please insert the password")
+            return false
+        }
+        
+        userToLogin = User(username:txtUsername.text!, password: txtPassword.text!)
+        if(UserProvider.allUsers.contains(userToLogin!)){
+            
+            txtUsername.text! = ""
+            txtPassword.text! = ""
+            
+            return true
+            
+        }
+        Toast.ok(view: self, title: "Error", message: "Username or password credentials are invalid.")
+        return false
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
