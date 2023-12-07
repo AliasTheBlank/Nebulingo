@@ -23,6 +23,7 @@ class FrenchVerbAPI {
             if let content = response["verb"] as? [String:Any]{
                 if let verb = FrenchVerb.decode(json: content){
                     successHandler(verb)
+                    return
                 }
             }
             failHandler(httpStatusCode, "Cannot decode response!")
@@ -51,6 +52,7 @@ class FrenchVerbAPI {
 
             if let token = response["token"] as? String {
                 successHandler(token)
+                return
             }
             failHandler(httpStatusCode, "Cannot decode response!")
             

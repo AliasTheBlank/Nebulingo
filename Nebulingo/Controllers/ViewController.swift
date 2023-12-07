@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var btnShowPassword: UIButton!
     
     
-    var userToLogin : User?
+    //var userToLogin : User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,16 +25,12 @@ class ViewController: UIViewController {
     }
     
     @IBAction func btnLogInTouchUpInside(_ sender: Any) {
-        FrenchVerbAPI.signIn(email: "aldo@gmail.com", password: "123"){
-            token in
-            print(token);
-            Context.loggedUserToken = token;
-        }failHandler: { httpStatusCode, errorMessage in
-            print("failed with \(httpStatusCode)")
-        }
-        performSegue(withIdentifier: Segue.toHomeViewController, sender: self)
-
+        
+        
+    }
+    
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        print("entro")
         if txtUsername.text!.isEmpty {
             Toast.ok(view: self, title: "Error", message: "Please insert an username")
             return false
@@ -43,21 +39,37 @@ class ViewController: UIViewController {
             Toast.ok(view: self, title: "Error", message: "Please insert the password")
             return false
         }
-        
-        userToLogin = User(username:txtUsername.text!, password: txtPassword.text!)
-        if(UserProvider.allUsers.contains(userToLogin!)){
-            
-            txtUsername.text! = ""
-            txtPassword.text! = ""
-            
-            return true
-            
-        }
-        Toast.ok(view: self, title: "Error", message: "Username or password credentials are invalid.")
-        return false
+
+            let semaphore = DispatchSemaphore(value: 0)
+            var shouldPerformSegue = false
+
+            FrenchVerbAPI.signIn(email: txtUsername.text!, password: txtPassword.text!){ token in
+                Context.loggedUserToken = token
+                shouldPerformSegue = true
+                semaphore.signal()
+            } failHandler: { httpStatusCode, errorMessage in
+                print("failed with \(httpStatusCode)")
+                semaphore.signal()
+            }
+
+            _ = semaphore.wait(timeout: .now() + 10) // para el que lea esto signifac espear 10 seg, si esta lento internet aumentale(no es la mejor forma pero mientras averiguo otra)
+
+            if shouldPerformSegue {
+                txtUsername.text = ""
+                txtPassword.text = ""
+                return true
+            } else {
+                Toast.ok(view: self, title: "Error", message: "Username or password credentials are invalid.")
+                return false
+            }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        if segue.identifier == Segue.toHomeViewController {
+            
+            //(segue.destination as! HomeViewController).selectedUser = self.selectedUser
+            
+        }
     }
     @IBAction func btnShowPasswordShow(_ sender: Any) {
         if(!txtPassword.isSecureTextEntry){

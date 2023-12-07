@@ -60,7 +60,7 @@ class SignUpViewController: UIViewController {
             Toast.ok(view: self, title: "Error", message: "Password doesn't")
             return
         }
-        
+        /*
         if(UserProvider.allUsers.contains(where: { $0.username == txtUsername.text! })){
             
             Toast.ok(view: self, title: "Error", message: "The user is already in usee")
@@ -70,7 +70,7 @@ class SignUpViewController: UIViewController {
         }
         
         let newUser = User(username: txtUsername.text!.lowercased(), password: txtPassword.text!)
-        UserProvider.allUsers.append(newUser)
+        UserProvider.allUsers.append(newUser)*/
         self.dismiss(animated: true)
         
     }

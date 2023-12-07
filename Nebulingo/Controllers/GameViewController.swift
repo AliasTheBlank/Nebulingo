@@ -9,7 +9,7 @@ import UIKit
 
 class GameViewController: UIViewController {
     
-    var receivedVerb: Verb?
+    //var receivedVerb: Verb?
     @IBOutlet weak var lblCurrent: UILabel!
     var level: String?
     @IBOutlet weak var txtVerb: UILabel!
@@ -28,7 +28,7 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        txtVerb.text = receivedVerb?.infinitif
+        txtVerb.text = ""//receivedVerb?.infinitif
         txtLevel.text = level
         switch level{
         case "Beginner":
@@ -54,7 +54,7 @@ class GameViewController: UIViewController {
                tvVous.text?.isEmpty ?? true ||
             tvIls.text?.isEmpty ?? true {
             Toast.ok(view: self, title: "Error", message: "Please fill all the text fields.")
-        }else{
+        }else{/*
             switch level{
             case "Beginner":
                 if(tvJe.text! == receivedVerb?.present?[1]){
@@ -103,7 +103,7 @@ class GameViewController: UIViewController {
                 break;
             default:
                 break;
-            }
+            }*/
         }
     }
 }
