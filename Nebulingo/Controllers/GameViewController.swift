@@ -36,10 +36,10 @@ class GameViewController: UIViewController {
             txtTime.text = "Present"
             break;
         case "Intermidiate":
-            txtTime.text = "Future"
+            txtTime.text = "Passe Compose"
             break;
         case "Advanced":
-            txtTime.text = "Past"
+            txtTime.text = "Futur Simple"
             break;
         default:
             break;
@@ -102,10 +102,51 @@ class GameViewController: UIViewController {
                 
                 break;
             case "Intermidiate":
-                txtTime.text = "Future"
+                txtTime.text = "Passe Compose"
+                
+                
+                
                 break;
             case "Advanced":
-                txtTime.text = "Past"
+                txtTime.text = "Futur Simple"
+                let verbString = verb?.futurSimple?.i ?? ""
+                var val_je = (verbString.contains("'")) ? "'" : " ";
+                
+                if(tvJe.text!.lowercased() == verb?.futurSimple?.i?.split(separator: val_je)[1] ?? "" ){
+                    tvJe.backgroundColor = UIColor.green
+                }else{
+                    tvJe.backgroundColor = UIColor.red
+                }
+                
+                if(tvTu.text!.lowercased() == verb?.futurSimple?.you?.split(separator: " ")[1] ?? ""){
+                    tvTu.backgroundColor = UIColor.green
+                }else{
+                    tvTu.backgroundColor = UIColor.red
+                }
+                
+                if(tvIl.text!.lowercased() == verb?.futurSimple?.heSheIt?.split(separator: " ")[1] ?? ""){
+                    tvIl.backgroundColor = UIColor.green
+                }else{
+                    tvIl.backgroundColor = UIColor.red
+                }
+                
+                if(tvNous.text!.lowercased() == verb?.futurSimple?.we?.split(separator: " ")[1] ?? ""){
+                    tvNous.backgroundColor = UIColor.green
+                }else{
+                    tvNous.backgroundColor = UIColor.red
+                }
+                
+                if(tvVous.text!.lowercased() == verb?.futurSimple?.youAll?.split(separator: " ")[1] ?? ""){
+                    tvVous.backgroundColor = UIColor.green
+                }else{
+                    tvVous.backgroundColor = UIColor.red
+                }
+                
+                if(tvIls.text!.lowercased() == verb?.futurSimple?.they?.split(separator: " ")[1] ?? ""){
+                    tvIls.backgroundColor = UIColor.green
+                }else{
+                    tvIls.backgroundColor = UIColor.red
+                }
                 break;
             default:
                 break;
