@@ -55,40 +55,45 @@ class GameViewController: UIViewController {
                tvVous.text?.isEmpty ?? true ||
             tvIls.text?.isEmpty ?? true {
             Toast.ok(view: self, title: "Error", message: "Please fill all the text fields.")
-        }else{/*
+        }else{
+            var verb = receivedVerb?.indicatif
+            
             switch level{
             case "Beginner":
-                if(tvJe.text! == receivedVerb?.present?[1]){
+                let verbString = verb?.present?.i ?? ""
+                var val_je = (verbString.contains("'")) ? "'" : " ";
+                
+                if(tvJe.text!.lowercased() == verb?.present?.i?.split(separator: val_je)[1] ?? "" ){
                     tvJe.backgroundColor = UIColor.green
                 }else{
                     tvJe.backgroundColor = UIColor.red
                 }
                 
-                if(tvTu.text! == receivedVerb?.present?[2]){
+                if(tvTu.text!.lowercased() == verb?.present?.you?.split(separator: " ")[1] ?? ""){
                     tvTu.backgroundColor = UIColor.green
                 }else{
                     tvTu.backgroundColor = UIColor.red
                 }
                 
-                if(tvIl.text! == receivedVerb?.present?[3]){
+                if(tvIl.text!.lowercased() == verb?.present?.heSheIt?.split(separator: " ")[1] ?? ""){
                     tvIl.backgroundColor = UIColor.green
                 }else{
                     tvIl.backgroundColor = UIColor.red
                 }
                 
-                if(tvNous.text! == receivedVerb?.present?[4]){
+                if(tvNous.text!.lowercased() == verb?.present?.we?.split(separator: " ")[1] ?? ""){
                     tvNous.backgroundColor = UIColor.green
                 }else{
                     tvNous.backgroundColor = UIColor.red
                 }
                 
-                if(tvVous.text! == receivedVerb?.present?[5]){
+                if(tvVous.text!.lowercased() == verb?.present?.youAll?.split(separator: " ")[1] ?? ""){
                     tvVous.backgroundColor = UIColor.green
                 }else{
                     tvVous.backgroundColor = UIColor.red
                 }
                 
-                if(tvIls.text! == receivedVerb?.present?[6]){
+                if(tvIls.text!.lowercased() == verb?.present?.they?.split(separator: " ")[1] ?? ""){
                     tvIls.backgroundColor = UIColor.green
                 }else{
                     tvIls.backgroundColor = UIColor.red
@@ -104,7 +109,7 @@ class GameViewController: UIViewController {
                 break;
             default:
                 break;
-            }*/
+            }
         }
     }
 }
