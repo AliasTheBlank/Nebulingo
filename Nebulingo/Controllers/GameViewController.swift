@@ -9,7 +9,7 @@ import UIKit
 
 class GameViewController: UIViewController {
     
-    //var receivedVerb: Verb?
+    var receivedVerb: FrenchVerb?
     @IBOutlet weak var lblCurrent: UILabel!
     var level: String?
     @IBOutlet weak var txtVerb: UILabel!
@@ -28,8 +28,9 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        txtVerb.text = ""//receivedVerb?.infinitif
+        txtVerb.text = receivedVerb?.verb
         txtLevel.text = level
+        
         switch level{
         case "Beginner":
             txtTime.text = "Present"

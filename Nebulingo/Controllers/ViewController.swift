@@ -30,7 +30,7 @@ class ViewController: UIViewController {
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        print("entro")
+       
         if txtUsername.text!.isEmpty {
             Toast.ok(view: self, title: "Error", message: "Please insert an username")
             return false

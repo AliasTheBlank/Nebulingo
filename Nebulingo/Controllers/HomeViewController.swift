@@ -12,8 +12,9 @@ class HomeViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     @IBOutlet weak var picker: UIPickerView!
     //var options = VerbProvider.allVerbs;
     var options: [String]?
-    //var selectedVerb: Verb?;
+    var selectedVerb: String?;
     var level: String?
+    var senderVerb: FrenchVerb?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,7 @@ class HomeViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         FrenchVerbAPI.getRandomVerbs(number: 30, successHandler: { verbs in
             DispatchQueue.main.async {
                 self.options = verbs
+                self.selectedVerb = verbs.first
                 self.picker.reloadAllComponents()
             }
         }, failHandler: { httpStatusCode, errorMessage in
@@ -51,10 +53,46 @@ class HomeViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         // Aquí puedes manejar lo que sucede cuando el usuario selecciona una opción
         // textField.text = options[row]
-        //selectedVerb = options[row]
+        selectedVerb = options?[row]
     }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+       
+        let semaphore = DispatchSemaphore(value: 0)
+        var shouldPerformSegue = false
+
+        FrenchVerbAPI.getVerb(verb: selectedVerb ?? "") { verb in
+            
+            self.senderVerb = verb
+            shouldPerformSegue = true
+            semaphore.signal()
+        } failHandler: { httpStatusCode, errorMessage in
+            print("Failed with httpCode \(httpStatusCode) - \(errorMessage)")
+            semaphore.signal()
+        }
+
+
+        _ = semaphore.wait(timeout: .now() + 10) // para el que lea esto signifac espear 10 seg, si esta lento internet aumentale(no es la mejor forma pero mientras averiguo otra)
+
+        if shouldPerformSegue {
+            return true
+        } else {
+            //Toast.ok(view: self, title: "Error", message: "Username or password credentials are invalid.")
+            return false
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //(segue.destination as! GameViewController).receivedVerb = selectedVerb
+        /*
+        FrenchVerbAPI.getVerb(verb: selectedVerb ?? "") { verb in
+            DispatchQueue.main.async {
+                self.senderVerb = verb
+                
+            }
+        } failHandler: { httpStatusCode, errorMessage in
+            print("Failed with httpCode \(httpStatusCode) - \(errorMessage)")
+        }*/
+        (segue.destination as! GameViewController).receivedVerb = self.senderVerb
         (segue.destination as! GameViewController).level = level
     }
     @IBAction func btnBeginnerTouchUpInside(_ sender: Any) {
