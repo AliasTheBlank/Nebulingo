@@ -41,5 +41,15 @@ struct FrenchVerb : Codable {
         return nil
     }
     
+    static func decodeRandom( json : [String] ) -> [String]? {
+        
+        let decoder = JSONDecoder()
+        do{
+            let data = try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
+            let object = try decoder.decode([String].self, from: data)
+            return object
+        } catch {
+        }
+        return nil
+    }
 }
-

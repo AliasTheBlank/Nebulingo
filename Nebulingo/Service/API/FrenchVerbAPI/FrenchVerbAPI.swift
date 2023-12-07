@@ -88,5 +88,28 @@ class FrenchVerbAPI {
 
         }
     }
+    static func getRandomVerbs(number : Int,
+                           successHandler : @escaping ( _ verb : [String]) -> Void,
+                            failHandler : @escaping (_ httpStatusCode : Int, _ errorMessage : String) -> Void) -> Void {
+        
+        let endPoint = "v0/verbs/random"
+        
+        let header : [String:String] = ["x-access-token" : Context.loggedUserToken!]
+        
+        let payload : [String:Any] = ["quantity": number]
+        
+        API.call(baseURL: baseURL, endPoint: endPoint, method : "POST", header: header, payload: payload) { httpStatusCode, response in
+            if let content = response["verbs"] as? [String]{
+                if let verbs = FrenchVerb.decodeRandom(json: content){
+                    successHandler(verbs)
+                    return
+                }
+            }
+            failHandler(httpStatusCode, "Cannot decode response!")
+        } failHandler: { httpStatusCode, errorMessage in
+            failHandler(httpStatusCode, errorMessage)
+        }
+
+    }
     
 }
