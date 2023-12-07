@@ -68,6 +68,7 @@ class HomeViewController: UIViewController, UIPickerViewDataSource, UIPickerView
             semaphore.signal()
         } failHandler: { httpStatusCode, errorMessage in
             print("Failed with httpCode \(httpStatusCode) - \(errorMessage)")
+            Toast.ok(view: self, title: "Error", message: "Failed with httpCode \(httpStatusCode) - \(errorMessage)")
             semaphore.signal()
         }
 
@@ -77,7 +78,6 @@ class HomeViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         if shouldPerformSegue {
             return true
         } else {
-            //Toast.ok(view: self, title: "Error", message: "Username or password credentials are invalid.")
             return false
         }
     }
@@ -106,5 +106,13 @@ class HomeViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     }
     @IBAction func btnAdvancedTouchUpInside(_ sender: Any) {
         level = "Advanced";
+    }
+    
+    @IBAction func selectRandomVerb(_ sender: UIButton) {
+        if let optionsCount = options?.count, optionsCount > 0 {
+            let randomIndex = Int.random(in: 0..<optionsCount)
+            picker.selectRow(randomIndex, inComponent: 0, animated: true)
+            pickerView(picker, didSelectRow: randomIndex, inComponent: 0)
+        }
     }
 }
