@@ -11,6 +11,7 @@ class HomeViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     
     @IBOutlet weak var picker: UIPickerView!
     //var options = VerbProvider.allVerbs;
+    var options: [String]?
     //var selectedVerb: Verb?;
     var level: String?
 
@@ -22,6 +23,16 @@ class HomeViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         
         //VerbProvider.generateVerbData()
         //options = VerbProvider.allVerbs
+        //options = []
+        
+        FrenchVerbAPI.getRandomVerbs(number: 30, successHandler: { verbs in
+            DispatchQueue.main.async {
+                self.options = verbs
+                self.picker.reloadAllComponents()
+            }
+        }, failHandler: { httpStatusCode, errorMessage in
+            print("failed with \(httpStatusCode) - \(errorMessage)")
+        })
         //selectedVerb = options[0]
     }
     
@@ -30,10 +41,10 @@ class HomeViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 0//options.count
+        return options?.count ?? 0
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return ""//options[row].infinitif
+        return options?[row]
         }
 
         // Manejar la selección del usuario en el picker
