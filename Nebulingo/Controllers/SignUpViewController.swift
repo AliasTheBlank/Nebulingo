@@ -13,6 +13,8 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var btnShowPassword: UIButton!
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var txtUsername: UITextField!
+    @IBOutlet weak var txtName: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -60,18 +62,33 @@ class SignUpViewController: UIViewController {
             Toast.ok(view: self, title: "Error", message: "Password doesn't")
             return
         }
-        /*
-        if(UserProvider.allUsers.contains(where: { $0.username == txtUsername.text! })){
-            
-            Toast.ok(view: self, title: "Error", message: "The user is already in usee")
-            
+        if txtName.text!.isEmpty {
+            Toast.ok(view: self, title: "Error", message: "Please insert the name")
             return
-            
         }
         
-        let newUser = User(username: txtUsername.text!.lowercased(), password: txtPassword.text!)
-        UserProvider.allUsers.append(newUser)*/
-        self.dismiss(animated: true)
+        let semaphore = DispatchSemaphore(value: 0)
+        var isSuccess = false
+        var message = ""
+
+        FrenchVerbAPI.signUp(email: txtUsername.text!, name: txtName.text!, password: txtPassword.text!) { userId in
+            print(userId)
+            isSuccess = true
+            semaphore.signal()
+        } failHandler: { httpStatusCode, errorMessage in
+            print("failed with \(httpStatusCode)")
+            message = errorMessage
+            semaphore.signal()
+        }
+
+
+        _ = semaphore.wait(timeout: .now() + 10) // igual que en login
+
+        if isSuccess {
+            self.dismiss(animated: true)
+        } else {
+            Toast.ok(view: self, title: "Error", message: message)
+        }
         
     }
 }

@@ -40,28 +40,28 @@ class ViewController: UIViewController {
             return false
         }
 
-            let semaphore = DispatchSemaphore(value: 0)
-            var shouldPerformSegue = false
+        let semaphore = DispatchSemaphore(value: 0)
+        var shouldPerformSegue = false
 
-            FrenchVerbAPI.signIn(email: txtUsername.text!, password: txtPassword.text!){ token in
-                Context.loggedUserToken = token
-                shouldPerformSegue = true
-                semaphore.signal()
-            } failHandler: { httpStatusCode, errorMessage in
-                print("failed with \(httpStatusCode)")
-                semaphore.signal()
-            }
+        FrenchVerbAPI.signIn(email: txtUsername.text!, password: txtPassword.text!){ token in
+            Context.loggedUserToken = token
+            shouldPerformSegue = true
+            semaphore.signal()
+        } failHandler: { httpStatusCode, errorMessage in
+            print("failed with \(httpStatusCode)")
+            semaphore.signal()
+        }
 
-            _ = semaphore.wait(timeout: .now() + 10) // para el que lea esto signifac espear 10 seg, si esta lento internet aumentale(no es la mejor forma pero mientras averiguo otra)
+        _ = semaphore.wait(timeout: .now() + 10) // para el que lea esto signifac espear 10 seg, si esta lento internet aumentale(no es la mejor forma pero mientras averiguo otra)
 
-            if shouldPerformSegue {
-                txtUsername.text = ""
-                txtPassword.text = ""
-                return true
-            } else {
-                Toast.ok(view: self, title: "Error", message: "Username or password credentials are invalid.")
-                return false
-            }
+        if shouldPerformSegue {
+            txtUsername.text = ""
+            txtPassword.text = ""
+            return true
+        } else {
+            Toast.ok(view: self, title: "Error", message: "Username or password credentials are invalid.")
+            return false
+        }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         

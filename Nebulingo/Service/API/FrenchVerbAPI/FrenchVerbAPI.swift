@@ -64,4 +64,29 @@ class FrenchVerbAPI {
         
     }
     
+    static func signUp(email: String, name: String, password: String,
+                       successHandler: @escaping (_ userId: String) -> Void,
+                       failHandler: @escaping (_ httpStatusCode: Int, _ errorMessage: String) -> Void) {
+        
+        let endPoint = "v0/users/"
+        
+        let header : [String:String] = [:]
+
+        let payload: [String: Any] = ["email": email, "name": name, "password": password]
+
+        API.call(baseURL: baseURL, endPoint: endPoint, method: "POST", header: header, payload: payload) { httpStatusCode, response in
+
+            if let userId = response["id"] as? String {
+                successHandler(userId)
+                return
+            }
+            failHandler(httpStatusCode, "Cannot decode response!")
+
+        } failHandler: { httpStatusCode, errorMessage in
+
+            failHandler(httpStatusCode, errorMessage)
+
+        }
+    }
+    
 }

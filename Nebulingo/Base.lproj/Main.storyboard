@@ -480,7 +480,7 @@
                                 </buttonConfiguration>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nG5-j8-Xsv">
-                                <rect key="frame" x="16" y="530" width="361" height="51"/>
+                                <rect key="frame" x="15" y="573" width="361" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.53359252209999997" green="0.23989009859999999" blue="0.56865388149999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -499,6 +499,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B1J-RL-9zm">
+                                <rect key="frame" x="15" y="493" width="361" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="obi-hu-Xr7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -507,6 +513,7 @@
                     <connections>
                         <outlet property="btnShowPassword" destination="3B7-kb-H2o" id="vs1-7r-6un"/>
                         <outlet property="txtConfirmPassword" destination="fbh-RB-Dfg" id="IUX-6z-eR9"/>
+                        <outlet property="txtName" destination="B1J-RL-9zm" id="ftD-i4-Zg2"/>
                         <outlet property="txtPassword" destination="qbU-BA-nSP" id="kY0-BS-cbb"/>
                         <outlet property="txtUsername" destination="eab-dq-RSh" id="h4d-mS-L3f"/>
                     </connections>
