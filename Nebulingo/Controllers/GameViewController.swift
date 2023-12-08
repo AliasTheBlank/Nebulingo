@@ -10,9 +10,16 @@ import UIKit
 class GameViewController: UIViewController {
     
     var receivedVerb: FrenchVerb?
+    var lives : Int?
     @IBOutlet weak var lblCurrent: UILabel!
     var level: String?
     @IBOutlet weak var txtVerb: UILabel!
+    
+    @IBOutlet weak var imgHeart1: UIImageView!
+    @IBOutlet weak var imgHeart2: UIImageView!
+    @IBOutlet weak var imgHeart3: UIImageView!
+    private var imageStack : Stack<UIImageView>?
+    
     @IBOutlet weak var txtTime: UILabel!
     @IBOutlet weak var txtLevel: UILabel!
     @IBAction func btnBackTouchUpInside(_ sender: Any) {
@@ -30,6 +37,11 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         txtVerb.text = receivedVerb?.verb
         txtLevel.text = level
+        lives = 3
+        imageStack = Stack<UIImageView>()
+        imageStack?.push(imgHeart1)
+        imageStack?.push(imgHeart2)
+        imageStack?.push(imgHeart3)
         
         switch level{
         case "Beginner":
@@ -56,49 +68,59 @@ class GameViewController: UIViewController {
             tvIls.text?.isEmpty ?? true {
             Toast.ok(view: self, title: "Error", message: "Please fill all the text fields.")
         }else{
-            var verb = receivedVerb?.indicatif
+            let verb = receivedVerb?.indicatif
+            var error = false
             
             switch level{
             case "Beginner":
                 let verbString = verb?.present?.i ?? ""
-                var val_je = (verbString.contains("'")) ? "'" : " ";
+                let val_je = (verbString.contains("'")) ? "'" : " ";
                 
                 if(tvJe.text!.lowercased() == verb?.present?.i?.split(separator: val_je)[1] ?? "" ){
                     tvJe.backgroundColor = UIColor.green
                 }else{
                     tvJe.backgroundColor = UIColor.red
+                    error = true
                 }
                 
                 if(tvTu.text!.lowercased() == verb?.present?.you?.split(separator: " ")[1] ?? ""){
                     tvTu.backgroundColor = UIColor.green
                 }else{
                     tvTu.backgroundColor = UIColor.red
+                    error = true
                 }
                 
                 if(tvIl.text!.lowercased() == verb?.present?.heSheIt?.split(separator: " ")[1] ?? ""){
                     tvIl.backgroundColor = UIColor.green
                 }else{
                     tvIl.backgroundColor = UIColor.red
+                    error = true
                 }
                 
                 if(tvNous.text!.lowercased() == verb?.present?.we?.split(separator: " ")[1] ?? ""){
                     tvNous.backgroundColor = UIColor.green
                 }else{
                     tvNous.backgroundColor = UIColor.red
+                    error = true
                 }
                 
                 if(tvVous.text!.lowercased() == verb?.present?.youAll?.split(separator: " ")[1] ?? ""){
                     tvVous.backgroundColor = UIColor.green
                 }else{
                     tvVous.backgroundColor = UIColor.red
+                    error = true
                 }
                 
                 if(tvIls.text!.lowercased() == verb?.present?.they?.split(separator: " ")[1] ?? ""){
                     tvIls.backgroundColor = UIColor.green
                 }else{
                     tvIls.backgroundColor = UIColor.red
+                    error = true
                 }
                 
+                if error {
+                    failAttemp()
+                }
                 
                 break;
             case "Intermidiate":
@@ -110,42 +132,52 @@ class GameViewController: UIViewController {
             case "Advanced":
                 txtTime.text = "Futur Simple"
                 let verbString = verb?.futurSimple?.i ?? ""
-                var val_je = (verbString.contains("'")) ? "'" : " ";
+                let val_je = (verbString.contains("'")) ? "'" : " ";
                 
                 if(tvJe.text!.lowercased() == verb?.futurSimple?.i?.split(separator: val_je)[1] ?? "" ){
                     tvJe.backgroundColor = UIColor.green
                 }else{
                     tvJe.backgroundColor = UIColor.red
+                    error = true
                 }
                 
                 if(tvTu.text!.lowercased() == verb?.futurSimple?.you?.split(separator: " ")[1] ?? ""){
                     tvTu.backgroundColor = UIColor.green
                 }else{
                     tvTu.backgroundColor = UIColor.red
+                    error = true
                 }
                 
                 if(tvIl.text!.lowercased() == verb?.futurSimple?.heSheIt?.split(separator: " ")[1] ?? ""){
                     tvIl.backgroundColor = UIColor.green
                 }else{
                     tvIl.backgroundColor = UIColor.red
+                    error = true
                 }
                 
                 if(tvNous.text!.lowercased() == verb?.futurSimple?.we?.split(separator: " ")[1] ?? ""){
                     tvNous.backgroundColor = UIColor.green
                 }else{
                     tvNous.backgroundColor = UIColor.red
+                    error = true
                 }
                 
                 if(tvVous.text!.lowercased() == verb?.futurSimple?.youAll?.split(separator: " ")[1] ?? ""){
                     tvVous.backgroundColor = UIColor.green
                 }else{
                     tvVous.backgroundColor = UIColor.red
+                    error = true
                 }
                 
                 if(tvIls.text!.lowercased() == verb?.futurSimple?.they?.split(separator: " ")[1] ?? ""){
                     tvIls.backgroundColor = UIColor.green
                 }else{
                     tvIls.backgroundColor = UIColor.red
+                    error = true
+                }
+                
+                if error {
+                    failAttemp()
                 }
                 break;
             default:
@@ -153,4 +185,22 @@ class GameViewController: UIViewController {
             }
         }
     }
+    
+    func failAttemp () {
+        lives! -= 1
+        var image = imageStack!.pop()
+        image?.image = UIImage(systemName: "heart")
+        
+        if lives == 0 {
+            var alertActionHandler: (UIAlertAction) -> Void
+
+            alertActionHandler = { action in
+                self.dismiss(animated: true)
+            }
+            
+            Toast.ok(view: self, title: "You loss :(", message: "You have run out of lives! Maybe try another verb?", handler: alertActionHandler)
+            
+        }
+    }
+    
 }
