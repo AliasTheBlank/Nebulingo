@@ -21,15 +21,6 @@ class SignUpViewController: UIViewController {
     
 
     @IBAction func btnLogInTouchUpInside(_ sender: Any) {
-        FrenchVerbAPI.signIn(email: "aldo@gmail.com", password: "123"){
-            token in
-            print(token);
-            Context.loggedUserToken = token;
-        }failHandler: { httpStatusCode, errorMessage in
-            print("failed with \(httpStatusCode)")
-        }
-        print("After calling")
-        performSegue(withIdentifier: Segue.toViewController, sender: self)
         self.dismiss(animated: true)
     }
     
