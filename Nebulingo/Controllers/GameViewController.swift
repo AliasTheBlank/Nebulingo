@@ -126,7 +126,78 @@ class GameViewController: UIViewController {
             case "Intermidiate":
                 txtTime.text = "Passe Compose"
                 
+                let verbString = verb?.passeCompose?.i ?? ""
+                let val_je = (verbString.contains("'")) ? "'" : " ";
+                var je = ""
+                if (val_je == "'"){
+                    if let splitResult = verb?.passeCompose?.i?.split(separator: "'").map(String.init), splitResult.count > 1 {
+                            je = splitResult[1]
+                        }
+                }else{
+                    let je_components = verb?.passeCompose?.i?.split(separator: " ").map(String.init) ?? []
+                    je = je_components.count > 2 ? "\(je_components[1]) \(je_components[2].removingPercentEncoding ?? "")" : ""
+                }
                 
+                if(tvJe.text!.lowercased() ==  je){
+                    tvJe.backgroundColor = UIColor.green
+                }else{
+                    tvJe.backgroundColor = UIColor.red
+                    error = true
+                }
+                
+                let tu_components = verb?.passeCompose?.you?.split(separator: " ").map(String.init) ?? []
+                let tu = tu_components.count > 2 ? "\(tu_components[1]) \(tu_components[2].removingPercentEncoding ?? "")" : ""
+
+                if(tvTu.text!.lowercased() == tu){
+                    tvTu.backgroundColor = UIColor.green
+                }else{
+                    tvTu.backgroundColor = UIColor.red
+                    error = true
+                }
+                
+                let ilElle_components = verb?.passeCompose?.heSheIt?.split(separator: " ").map(String.init) ?? []
+                let ilElle = ilElle_components.count > 2 ? "\(ilElle_components[1]) \(ilElle_components[2].removingPercentEncoding ?? "")" : ""
+                
+                if(tvIl.text!.lowercased() == ilElle){
+                    tvIl.backgroundColor = UIColor.green
+                }else{
+                    tvIl.backgroundColor = UIColor.red
+                    error = true
+                }
+                
+                let nous_components = verb?.passeCompose?.we?.split(separator: " ").map(String.init) ?? []
+                let nous = nous_components.count > 2 ? "\(nous_components[1]) \(nous_components[2].removingPercentEncoding ?? "")" : ""
+                
+                if(tvNous.text!.lowercased() == nous){
+                    tvNous.backgroundColor = UIColor.green
+                }else{
+                    tvNous.backgroundColor = UIColor.red
+                    error = true
+                }
+                
+                let vous_components = verb?.passeCompose?.youAll?.split(separator: " ").map(String.init) ?? []
+                let vous = vous_components.count > 2 ? "\(vous_components[1]) \(vous_components[2].removingPercentEncoding ?? "")" : ""
+                
+                if(tvVous.text!.lowercased() == vous){
+                    tvVous.backgroundColor = UIColor.green
+                }else{
+                    tvVous.backgroundColor = UIColor.red
+                    error = true
+                }
+                
+                let ils_components = verb?.passeCompose?.they?.split(separator: " ").map(String.init) ?? []
+                let ils = ils_components.count > 2 ? "\(ils_components[1]) \(ils_components[2].removingPercentEncoding ?? "")" : ""
+                
+                if(tvIls.text!.lowercased() == ils){
+                    tvIls.backgroundColor = UIColor.green
+                }else{
+                    tvIls.backgroundColor = UIColor.red
+                    error = true
+                }
+                
+                if error {
+                    failAttemp()
+                }
                 
                 break;
             case "Advanced":
