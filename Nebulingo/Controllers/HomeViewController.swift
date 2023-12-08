@@ -17,9 +17,15 @@ class HomeViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     var senderVerb: FrenchVerb?
     @IBOutlet weak var lblName: UILabel!
 
+    @IBOutlet weak var imgDuo: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        imgDuo.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        imgDuo.addGestureRecognizer(tapGesture)
+        
         picker.dataSource = self
         picker.delegate = self
         lblName.text = Context.userName
@@ -38,6 +44,16 @@ class HomeViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         })
         //selectedVerb = options[0]
     }
+    @objc func imageTapped() {
+            let shakeAnimation = CABasicAnimation(keyPath: "position")
+            shakeAnimation.duration = 0.07
+            shakeAnimation.repeatCount = 4
+            shakeAnimation.autoreverses = true
+            shakeAnimation.fromValue = NSValue(cgPoint: CGPoint(x: imgDuo.center.x - 5, y: imgDuo.center.y))
+            shakeAnimation.toValue = NSValue(cgPoint: CGPoint(x: imgDuo.center.x + 5, y: imgDuo.center.y))
+            
+        imgDuo.layer.add(shakeAnimation, forKey: "position")
+        }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

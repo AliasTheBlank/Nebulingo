@@ -240,6 +240,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="C2J-Vb-w1h"/>
                     <connections>
+                        <outlet property="imgDuo" destination="uLK-BW-Dzc" id="t3N-hG-5Ta"/>
                         <outlet property="lblName" destination="GCn-b8-ovD" id="oQ5-zc-A8U"/>
                         <outlet property="picker" destination="Lsq-lm-i8R" id="esp-hU-rgZ"/>
                     </connections>
