@@ -38,7 +38,7 @@ class FrenchVerbAPI {
         
     
     static func signIn( email : String, password : String,
-                         successHandler: @escaping ( _ token : String ) -> Void,
+                        successHandler: @escaping ( _ token : String , _ name : String) -> Void,
                          failHandler : @escaping (_ httpStatusCode : Int, _ errorMessage: String) -> Void) {
         
         let endPoint = "v0/users/login"
@@ -51,8 +51,10 @@ class FrenchVerbAPI {
         API.call(baseURL: baseURL, endPoint: endPoint, method: "POST", header: header, payload: payload) { httpStatusCode, response in
 
             if let token = response["token"] as? String {
-                successHandler(token)
-                return
+                if let userName = response["logged_user"] as? [String: Any], let name = userName["name"] as? String {
+                    successHandler(token, name)
+                    return
+                }
             }
             failHandler(httpStatusCode, "Cannot decode response!")
             

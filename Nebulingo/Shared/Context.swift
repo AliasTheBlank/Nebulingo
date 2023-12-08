@@ -8,4 +8,5 @@
 import Foundation
 class Context{
     static var loggedUserToken : String?
+    static var userName : String?
 }

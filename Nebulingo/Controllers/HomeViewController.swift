@@ -15,13 +15,14 @@ class HomeViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     var selectedVerb: String?;
     var level: String?
     var senderVerb: FrenchVerb?
+    @IBOutlet weak var lblName: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         picker.dataSource = self
         picker.delegate = self
-        
+        lblName.text = Context.userName
         //VerbProvider.generateVerbData()
         //options = VerbProvider.allVerbs
         //options = []

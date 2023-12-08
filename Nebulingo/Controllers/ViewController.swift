@@ -43,8 +43,9 @@ class ViewController: UIViewController {
         let semaphore = DispatchSemaphore(value: 0)
         var shouldPerformSegue = false
 
-        FrenchVerbAPI.signIn(email: txtUsername.text!, password: txtPassword.text!){ token in
+        FrenchVerbAPI.signIn(email: txtUsername.text!, password: txtPassword.text!){ token, name in
             Context.loggedUserToken = token
+            Context.userName = name
             shouldPerformSegue = true
             semaphore.signal()
         } failHandler: { httpStatusCode, errorMessage in
@@ -66,8 +67,6 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == Segue.toHomeViewController {
-            
-            //(segue.destination as! HomeViewController).selectedUser = self.selectedUser
             
         }
     }
