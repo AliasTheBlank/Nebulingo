@@ -121,7 +121,15 @@ class GameViewController: UIViewController {
                 if error {
                     failAttemp()
                 }
-                
+                else {
+                    var alertActionHandler: (UIAlertAction) -> Void
+
+                    alertActionHandler = { action in
+                        self.dismiss(animated: true)
+                    }
+                    
+                    Toast.ok(view: self, title: "You won :)", message: "You have guessed every verb! Maybe try another verb?", handler: alertActionHandler)
+                }
                 break;
             case "Intermidiate":
                 txtTime.text = "Passe Compose"
@@ -198,7 +206,15 @@ class GameViewController: UIViewController {
                 if error {
                     failAttemp()
                 }
-                
+                else {
+                    var alertActionHandler: (UIAlertAction) -> Void
+
+                    alertActionHandler = { action in
+                        self.dismiss(animated: true)
+                    }
+                    
+                    Toast.ok(view: self, title: "You won :)", message: "You have guessed every verb! Maybe try another verb?", handler: alertActionHandler)
+                }
                 break;
             case "Advanced":
                 txtTime.text = "Futur Simple"
@@ -250,6 +266,17 @@ class GameViewController: UIViewController {
                 if error {
                     failAttemp()
                 }
+                
+                else {
+                    var alertActionHandler: (UIAlertAction) -> Void
+
+                    alertActionHandler = { action in
+                        self.dismiss(animated: true)
+                    }
+                    
+                    Toast.ok(view: self, title: "You won :)", message: "You have guessed every verb! Maybe try another verb?", handler: alertActionHandler)
+                }
+                
                 break;
             default:
                 break;
